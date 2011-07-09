@@ -11,11 +11,10 @@ gem 'sqlite3'
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
+gem 'therubyracer'
+gem 'haml-rails'
 
 gem 'jquery-rails'
-
-gem 'therubyracer'
-
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -23,10 +22,17 @@ gem 'therubyracer'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :development do
+  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'sqlite3-ruby'
+end
 
 group :test do
+  gem 'launchy'
   # Pretty printed test output
   gem 'turn', :require => false
 end

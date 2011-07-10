@@ -6,6 +6,10 @@
 %p
   %b Description:
   = @job.description
+%p
+  %b Company:
+  = link_to @job.company.name, company_path(@job.company)
+  
 
 = link_to 'Edit', edit_job_path(@job)
 \|

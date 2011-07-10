@@ -15,6 +15,7 @@ gem 'therubyracer'
 gem 'haml-rails'
 
 gem 'jquery-rails'
+gem 'formtastic', '2.0.0.rc1'
 
 # Use unicorn as the web server
 # gem 'unicorn'

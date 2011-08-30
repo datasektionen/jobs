@@ -2,10 +2,8 @@ require 'spec_helper'
 
 describe "jobs/show.html.haml" do
   before(:each) do
-    @job = assign(:job, stub_model(Job,
-      :name => "Name",
-      :description => "Description"
-    ))
+    @company = assign(:company, Company.make!)
+    @job = assign(:job, Job.make!(:company => @company))
   end
 
   it "renders attributes in <p>" do

@@ -61,6 +61,7 @@ group :test do
 
   gem 'guard'
   gem 'guard-rspec'
+  gem 'guard-cucumber'
 
   # notifications on linux
   gem 'rb-inotify', :require => false if RUBY_PLATFORM =~ /linux/i

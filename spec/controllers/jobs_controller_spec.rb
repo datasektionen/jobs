@@ -19,17 +19,24 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe JobsController do
+  before do
+    @company = Company.make!
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # Job. As you add validations to Job, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      :name => "Worker",
+      :description => "Work!",
+      :company_id => @company.id
+    }
   end
 
   describe "GET index" do
     it "assigns all jobs as @jobs" do
-      job = Job.create! valid_attributes
+      job = Job.make!
       get :index
       assigns(:jobs).should eq([job])
     end
@@ -37,7 +44,7 @@ describe JobsController do
 
   describe "GET show" do
     it "assigns the requested job as @job" do
-      job = Job.create! valid_attributes
+      job = Job.make!
       get :show, :id => job.id.to_s
       assigns(:job).should eq(job)
     end
@@ -52,7 +59,7 @@ describe JobsController do
 
   describe "GET edit" do
     it "assigns the requested job as @job" do
-      job = Job.create! valid_attributes
+      job = Job.make!
       get :edit, :id => job.id.to_s
       assigns(:job).should eq(job)
     end

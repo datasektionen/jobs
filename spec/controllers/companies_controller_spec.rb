@@ -21,15 +21,18 @@ require 'spec_helper'
 describe CompaniesController do
 
   # This should return the minimal set of attributes required to create a valid
-  # Company. As you add validations to Company, be sure to
+  # Job. As you add validations to Job, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      :name => "Acme Inc.",
+      :description => "One world, one company"
+    }
   end
 
   describe "GET index" do
     it "assigns all companies as @companies" do
-      company = Company.create! valid_attributes
+      company = Company.make!
       get :index
       assigns(:companies).should eq([company])
     end
@@ -37,7 +40,7 @@ describe CompaniesController do
 
   describe "GET show" do
     it "assigns the requested company as @company" do
-      company = Company.create! valid_attributes
+      company = Company.make!
       get :show, :id => company.id.to_s
       assigns(:company).should eq(company)
     end
@@ -52,7 +55,7 @@ describe CompaniesController do
 
   describe "GET edit" do
     it "assigns the requested company as @company" do
-      company = Company.create! valid_attributes
+      company = Company.make!
       get :edit, :id => company.id.to_s
       assigns(:company).should eq(company)
     end

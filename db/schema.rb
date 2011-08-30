@@ -10,18 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110710010627) do
+ActiveRecord::Schema.define(:version => 20110710204403) do
 
   create_table "companies", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
+    t.string   "name",                       :null => false
+    t.text     "description", :limit => 255, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "jobs", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
+    t.string   "name",                       :null => false
+    t.text     "description", :limit => 255, :null => false
+    t.integer  "company_id",                 :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

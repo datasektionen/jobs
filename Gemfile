@@ -8,21 +8,38 @@ gem 'arel', '2.1.4'
 
 gem 'sqlite3'
 
+# Deploy with Capistrano
+gem 'capistrano'
+
 # Asset template engines
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
-gem 'therubyracer'
 gem 'haml-rails'
-
 gem 'jquery-rails'
-gem 'formtastic', '2.0.0.rc1'
+gem 'formtastic'
+gem 'RedCloth'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+# Authentication
+gem 'devise'
+gem "oa-enterprise", :git => "https://github.com/intridea/omniauth.git"
+gem 'oa-oauth', :git => "https://github.com/intridea/omniauth.git"
+gem 'net-ldap'
+gem 'rest-client'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+# Authorization
+gem 'cancan'
+
+# Useful gems
+gem 'paperclip'
+gem 'acts-as-taggable-on'
+#gem 'simple-navigation'
+#gem 'i18n_routing'
+#gem 'friendly_id'
+
+group :production do
+  gem 'mysql2'
+end
 
 group :development, :test do
   gem 'rspec-rails'
@@ -34,7 +51,22 @@ group :development do
 end
 
 group :test do
+  gem 'cucumber-rails'
+  gem 'pickle'
+  gem 'capybara'
+  gem 'webrat'
   gem 'launchy'
-  # Pretty printed test output
-  gem 'turn', :require => false
+  gem 'machinist', '>= 2.0.0.beta2'
+  gem 'database_cleaner'
+
+  gem 'guard'
+  gem 'guard-rspec'
+
+  # notifications on linux
+  gem 'rb-inotify', :require => false if RUBY_PLATFORM =~ /linux/i
+  gem 'libnotify', :require => false if RUBY_PLATFORM =~ /linux/i
+
+  # notifications on mac
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'growl', :require => false if RUBY_PLATFORM =~ /darwin/i
 end

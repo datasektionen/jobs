@@ -14,6 +14,7 @@ gem 'capistrano'
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
+gem 'therubyracer'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'formtastic'
